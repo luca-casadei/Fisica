@@ -12,6 +12,9 @@
 \begin{document}
 	\maketitle
 	\tableofcontents
+	\chapter{Introduzione e cenni di ripasso}
+	\section{Derivata}
+	Dato un punto nello spazio si può costruire qualsiasi retta che passa per quel punto nello spazio ${x_0,f(x_0)}$ scrivibile come equazione della retta per un punto ${{y - f(x_0)} = m(x-x_0)}$ dove ${m}$ rappresenta il coefficiente angolare della retta, dove ${m = \tan(\theta)}$, che è la retta tangente alla curva in un determinato punto, equivalente a \colorbox{red}{p02}
 	\chapter{Cinematica}
 	Questo capitolo parla del moto dei corpi.\\
 	\textbf{Punto}: Se consideriamo un punto, ci interessano le sue coordinate ${X,Y,Z}$ nello spazia, ciascuna coordinata è una funzione nel tempo:
@@ -22,7 +25,21 @@
 	Nel moto rettilineo ho una retta che ha un verso (orientata) e il punto si muove su questa retta, determiniamo con ${X(t)}$ la posizione del punto sulla retta, definito da una sola coordinata spaziale. Questa funzione è detta \textbf{legge oraria}.
 	\subsection{Velocità}
 	Se il corpo si sta spostando per come lo osservo, prendendo due istanti diversi ${t_1,t_2}$ il corpo è in posizioni diverse ${X_1,X_2}$, possiamo definire la velocità media come: ${V_m = \frac{\Delta_x}{\Delta_t} = \frac{X_2 - X_1}{t_2 - t_1}}$.\\
-	Questa si basa su dei ${\Delta}$ macroscopici, se ${t_2}$ si avvicina a ${t_1}$, il ${\Delta}$ diventa sempre minore e il limite rappresenta effettivamente la derivata.
+	Questa si basa su dei ${\Delta}$ macroscopici, se ${t_2}$ si avvicina a ${t_1}$, il ${\Delta}$ diventa sempre minore e il limite rappresenta effettivamente la derivata.\\
+	Inoltre essa è la pendenza della retta secante a quella che rappresenta il movimento, se riduco $t_2$ fino ad arrivare a $t_1$ ottengo la \textbf{velocità istantanea}.\\
+	Vediamo quindi come arrivare a questa velocità: se consideriamo il coefficiente angolare $m_{sec} = {{\frac{f(x_0 + h) - f(x_0)}{x_0 + h - x_0}} \Rightarrow {\frac{(x_0 + h) - f(x_0)}{h}}}$ come si può notare questo è il rapporto incrementale che dobbiamo utilizzare per ottenere questa volta la velocità istantanea (quindi in un istante), che è rappresentata dal coefficiente angolare della retta tangente al punto dell'istante di nostro interesse, procediamo quindi con: $m_{tg} = {\lim_{h\to0}(\frac{f(x_0 + h) - f(x_0)}{h})} = {\frac{df}{dx}(x_0)} = {\lim_{\Delta t\to0}(\frac{\Delta x}{\Delta t})} = v_{ist}$ come si può vedere ho ottenuto la derivata, con la quale posso calcolare la velocità in un certo istante.
+	\subsubsection{Classificazione delle velocità in base al grafico della funzione}
+	\begin{itemize}
+		\item \textbf{No moto}: Se la funzione è costante, la retta è parallela all'asse delle ascisse e non abbiamo quindi alcun movimento.
+		\item \textbf{Velocità costante}: Se la funzione è una retta e non presenta curve (\textit{velocità costante}), la sua derivata è semplicemente la retta tangente di tutti i suoi punti, la cui pendenza è 0. In questo caso ${v_0 = v}$ costante.
+		\item \textbf{Velocità non costante}: Nel caso in cui la velocità cambia nel tempo (ad esempio se cresce sempre all'aumentare del tempo), allora si avrà una curva e non una retta, cosa che invece abbiamo se si tratta di \textbf{moto uniformemente accelerato}.
+	\end{itemize}
+	Possiamo notare che matematicamente per arrivare alla velocità considerando le 3 coordinate di un punto è che: ${{X = A + B(t) + C(t^2)} \Rightarrow {v = B + C(t)}}$.
+	\subsubsection{Ricavare la legge oraria dalla velocità}
+	Ovviamente si può ricavare $X(t)$ facendo l'integrale di $v(t)$, che è il contrario della derivata, con qualche accorgimento. Devo infatti prestare particolarmente attenzione al fatto che l'integrale da fare è quello definito, quindi descritto da un intervallo.\\\\
+	Possiamo effettuare la seguente trasformazione:\\\\
+	${\frac{dx}{dt} = v(t)}\Rightarrow\\{{dx} = {v(t)dt}} \Rightarrow\\{\int_{x_0}^{x}(dx')} = {\int_{t_0}^{t}(v(t')dt')} \Rightarrow\\{x-x_0} = {\int_{t_0}^{t}(v(t')dt')}\Rightarrow\\{x} = {x_0} + {\int_{t_0}^{t}(v_0(dt'))} \Rightarrow \mathcolor{red}{{x(t) = x_0 + v_0(t-t_0)}}$\\\\
+	Quando abbiamo un movimento di un corpo e dobbiamo sapere la sua posizione a seguito di una certa velocità, dobbiamo sapere da dov'è partito, quindi un'istante di tempo che ci dica dove sia all'inizio, per questo nella formula compare $x_0$, dato che l'integrale è definito questo è il punto come consideriamo come quello di partenza, che tipicamente prendiamo come $0$. Passare invece dalla legge oraria alla velocità non richiede nessun parametro aggiuntivo.
 	\chapter{Dinamica}
 	Perché un corpo si muove in un determinato modo?
 \end{document} 
