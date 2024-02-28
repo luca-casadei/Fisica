@@ -4,8 +4,7 @@
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{xcolor}
-\usepackage{pgfplots}
-\usepackage{tikz}
+\usepackage{amsmath}
 
 \title{\textbf{Fisica}\\Appunti universitari}
 \author{Luca Casadei}
@@ -21,9 +20,9 @@
 	\textbf{Misura}: Le coordinate rappresentano una distanza da un'origine nello spazio.
 	Nel sistema di riferimento viene rappresentata una curva in forma parametrica.
 	\section{Moto rettilineo}
-	Nel moto rettilineo ho una retta che ha un verso (orientata) e il punto si muove su questa retta, determiniamo con ${X(t)}$ la posizione del punto sulla retta, definito da una sola coordinata spaziale. Questa funzione è detta \textbf{legge oraria}.
+	Nel moto rettilineo ho una retta che ha un verso (orientata) e il punto si muove su questa retta, determiniamo con ${x(t)}$ la posizione del punto sulla retta, definito da una sola coordinata spaziale. Questa funzione è detta \textbf{legge oraria}.
 	\subsection{Velocità}
-	Se il corpo si sta spostando per come lo osservo, prendendo due istanti diversi ${t_1,t_2}$ il corpo è in posizioni diverse ${X_1,X_2}$, possiamo definire la velocità media come: ${V_m = \frac{\Delta_x}{\Delta_t} = \frac{X_2 - X_1}{t_2 - t_1}}$.\\
+	Se il corpo si sta spostando per come lo osservo, prendendo due istanti diversi ${t_1,t_2}$ il corpo è in posizioni diverse ${x_1,x_2}$, possiamo definire la velocità media come: ${v_m = \frac{\Delta_x}{\Delta_t} = \frac{x_2 - x_1}{t_2 - t_1}}$.\\
 	Questa si basa su dei ${\Delta}$ macroscopici, se ${t_2}$ si avvicina a ${t_1}$, il ${\Delta}$ diventa sempre minore e il limite rappresenta effettivamente la derivata.\\
 	Inoltre essa è la pendenza della retta secante a quella che rappresenta il movimento, se riduco $t_2$ fino ad arrivare a $t_1$ ottengo la \textbf{velocità istantanea}.\\
 	Vediamo quindi come arrivare a questa velocità: se consideriamo il coefficiente angolare $m_{sec} = {{\frac{f(x_0 + h) - f(x_0)}{x_0 + h - x_0}} \Rightarrow {\frac{(x_0 + h) - f(x_0)}{h}}}$ come si può notare questo è il rapporto incrementale che dobbiamo utilizzare per ottenere questa volta la velocità istantanea (quindi in un istante), che è rappresentata dal coefficiente angolare della retta tangente al punto dell'istante di nostro interesse, procediamo quindi con: $m_{tg} = {\lim_{h\to0}(\frac{f(x_0 + h) - f(x_0)}{h})} = {\frac{df}{dx}(x_0)} = {\lim_{\Delta t\to0}(\frac{\Delta x}{\Delta t})} = v_{ist}$ come si può vedere ho ottenuto la derivata, con la quale posso calcolare la velocità in un certo istante.
@@ -35,18 +34,18 @@
 	\end{itemize}
 	Possiamo notare che matematicamente per arrivare alla velocità considerando le 3 coordinate di un punto è che: ${{X = A + B(t) + C(t^2)} \Rightarrow {v = B + C(t)}}$.
 	\subsubsection{Ricavare la legge oraria dalla velocità}
-	Ovviamente si può ricavare $X(t)$ facendo l'integrale di $v(t)$, che è il contrario della derivata, con qualche accorgimento. Devo infatti prestare particolarmente attenzione al fatto che l'integrale da fare è quello definito, quindi descritto da un intervallo.\\\\
+	Ovviamente si può ricavare $x(t)$ facendo l'integrale di $v(t)$, che è il contrario della derivata, con qualche accorgimento. Devo infatti prestare particolarmente attenzione al fatto che l'integrale da fare è quello definito, quindi descritto da un intervallo.\\\\
 	Possiamo effettuare la seguente trasformazione:\\\\
-	${\frac{dx}{dt} = v(t)}\Rightarrow\\{{dx} = {v(t)dt}} \Rightarrow\\{\int_{x_0}^{x}(dx')} = {\int_{t_0}^{t}(v(t')dt')} \Rightarrow\\{x-x_0} = {\int_{t_0}^{t}(v(t')dt')}\Rightarrow\\{x} = {x_0} + {\int_{t_0}^{t}(v_0(dt'))} \Rightarrow \mathcolor{red}{{x(t) = x_0 + v_0(t-t_0)}}$\\\\
+	${\frac{dx}{dt} = v(t)}\Rightarrow\\{{dx} = {v(t)dt}} \Rightarrow\\{\int_{x_0}^{x}(dx')} = {\int_{t_0}^{t}(v(t')dt')} \Rightarrow\\{x-x_0} = {\int_{t_0}^{t}(v(t')dt')}\Rightarrow\\{x} = {x_0} + {\int_{t_0}^{t}(v_0(dt'))}\Rightarrow\\x(t) = x_0 + v(t-t_0)\Rightarrow \mathcolor{red}{x(t) = x_0 + vt}$\\\\
 	Quando abbiamo un movimento di un corpo e dobbiamo sapere la sua posizione a seguito di una certa velocità, dobbiamo sapere da dov'è partito, quindi un'istante di tempo che ci dica dove sia all'inizio, per questo nella formula compare $x_0$, dato che l'integrale è definito questo è il punto come consideriamo come quello di partenza, che tipicamente prendiamo come $0$. Passare invece dalla legge oraria alla velocità non richiede nessun parametro aggiuntivo.\\ \textit{Attenzione}: Se la funzione della velocità è discontinua (ad esempio quando si torna indietro), la funzione non è derivabile, quindi si devono considerare due leggi del moto differenti, prima dell'urto e dopo l'urto.
-	\subsection{Accelerazione}
+	\subsection{Accelerazione}\label{ss:accelerazione}
 	Possiamo distinguere accelerazione media e accelerazione istantanea come nella velocità.\\\\
 	$a_{m} = \frac{\Delta v}{\Delta t}$\\
 	$a = \frac{dv}{dt} = \frac{d^2x}{dt^2}$\\
 	$a = 0 \Longleftrightarrow v$ è costante.\\
 	$dv = a(t)dt \Longrightarrow \Delta v = \int_{v_0}^{v}dv = \int_{t_0}^{t}a(t)dt$\\
 	$v(t) = v_0 + \int_{t_0}^{t}(a(t))dt$\\\\
-	Se $a$ è costante ho un \textbf{moto rettilineo uniforme} definibile con: $X(t) = X_{0} + \int_{t_{0}}^{t}(v(t'))dt = X_0 \int_{t_0}^{t}[v_0 + a(t-t_0)]dt = X_0 + \int_{t_0}^{t}v_0dt + \int_{t_0}^{t}a(t - t_0)dt \Longrightarrow \mathcolor{red}{X(t) = X_0 + v_0(t - t_0) + \frac{1}{2}a(t - t_0)^2}$\\\\
+	Se $a$ è costante ho un \textbf{moto rettilineo uniforme} definibile con: $x(t) = x_{0} + \int_{t_{0}}^{t}(v(t'))dt = X_0 \int_{t_0}^{t}[v_0 + a(t-t_0)]dt = x_0 + \int_{t_0}^{t}v_0dt + \int_{t_0}^{t}a(t - t_0)dt \Longrightarrow \mathcolor{red}{x(t) = x_0 + v_0(t - t_0) + \frac{1}{2}a(t - t_0)^2}$\\\\
 	Se però non abbiamo informazioni sul tempo, e vogliamo considerare la velocità in funzione della distanza invece che il tempo ($v(x)$ invece che $v(t)$), elaboro le informazioni nel seguente modo:\\
 	$a = \frac{dv}{dt} = {\frac{dv}{dx}\frac{dx}{dt}} = v(\frac{dv}{dx}) \Rightarrow\\adx = vdv$ passo poi all'integrale $\int_{x_0}^{x}(a)dx' = \int_{v_0}^{v}(v)dv = \int_{x_0}^{x}(a(x))dx' = \frac{1}{2}v^2 - \frac{1}{2}v^2_{0} \Longrightarrow\\\mathcolor{red}{v^2 = v^2_0 + 2a(x -x_0)}$
 	\subsubsection{Unità di misura}
@@ -57,6 +56,30 @@
 	\subsection{Caduta di corpi gravi}
 	Consideriamo uno spazio bidimensionale (la caduta è considerata completamente in verticale).\\
 	\colorbox{red}{Figura}\\
+	Dobbiamo considerare in questo caso l'accelerazione di gravità sulla terra, definita generalmente come: $g = 9,81\frac{m}{s^2}$, questo è un moto uniformemente accelerato caratteristica di qualsiasi gravo sulla terra se verso il basso, verso l'alto sarà la sua controparte negativa $-g$. Si possono presentare diversi casi:
+	\begin{itemize}
+		\item Un corpo cade da un'altezza h con $v_0 = 0$\;\;\;$x_0 = h$\;\;\;$t_0 = 0$\\Valgono quindi le seguenti funzioni a partire da quelle precedentemente ottenute (vedi \ref{ss:accelerazione}).
+		\begin{equation}
+			\begin{cases}
+				v(t) = -gt	\\
+				x(t) = h - \frac{1}{2}gt^2
+			\end{cases}
+		\end{equation}
+		Queste sono espresse in funzione del tempo, ma come abbiamo fatto in precedenza, possiamo ricavarle anche in funzione dello spazio:
+		\begin{equation}
+			\begin{cases}
+				v(x) = \sqrt{2g(h-x)}	\\
+				t(x) = \sqrt{\frac{2(h-x)}{g}}
+			\end{cases}
+		\end{equation}
+		Se vogliamo ottenere il tempo o la velocità partendo dallo spazio, considerando $x = 0$ possiamo ottenere dalle ultime due formule:
+		\begin{itemize}
+			\item Tempo di caduta: $t_c = \sqrt{\frac{2h}{g}}$
+			\item Velocità al suolo: $v_c = \sqrt{2gh}$
+		\end{itemize}
+		\item Un corpo cade da altezza $h$ con $v_0 < 0$ (verso il basso):
+		\colorbox{red}{Da finire}
+	\end{itemize}
 	
 	\section{Moto nello spazio}
 	
@@ -75,7 +98,8 @@
 			$v_m = \frac{\Delta x}{\Delta t} = \frac{x- x_0}{t - t_0} = \frac{6400}{t}\frac{m}{s}$ Ci manca da trovare $t = t_1 + t_2$\\
 			$t_1 = (\frac{1}{43} * 5,2)\frac{h}{Km} * Km = 0,1209h = 435,24s$\\
 			$t_2 = 27m = 27 + 60 = 1620s$\\
-			Concludendo: $v_m = \frac{6400}{2055,24}\frac{m}{s} = 3,1139\frac{m}{s}$
+			Concludendo: $v_m = \frac{6400}{2055,24}\frac{m}{s} = 3,1139\frac{m}{s}$\\
+			Posso ricavare la legge oraria facendo l'integrale definito della velocità, ottenendo $x(t) = vt$
 	\end{itemize}
 	
 \end{document} 
