@@ -4,6 +4,8 @@
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage{tikz}
 
 \title{\textbf{Fisica}\\Appunti universitari}
 \author{Luca Casadei}
@@ -12,9 +14,6 @@
 \begin{document}
 	\maketitle
 	\tableofcontents
-	\chapter{Introduzione e cenni di ripasso}
-	\section{Derivata}
-	Dato un punto nello spazio si può costruire qualsiasi retta che passa per quel punto nello spazio ${x_0,f(x_0)}$ scrivibile come equazione della retta per un punto ${{y - f(x_0)} = m(x-x_0)}$ dove ${m}$ rappresenta il coefficiente angolare della retta, dove ${m = \tan(\theta)}$, che è la retta tangente alla curva in un determinato punto, equivalente a \colorbox{red}{p02}
 	\chapter{Cinematica}
 	Questo capitolo parla del moto dei corpi.\\
 	\textbf{Punto}: Se consideriamo un punto, ci interessano le sue coordinate ${X,Y,Z}$ nello spazia, ciascuna coordinata è una funzione nel tempo:
@@ -39,7 +38,44 @@
 	Ovviamente si può ricavare $X(t)$ facendo l'integrale di $v(t)$, che è il contrario della derivata, con qualche accorgimento. Devo infatti prestare particolarmente attenzione al fatto che l'integrale da fare è quello definito, quindi descritto da un intervallo.\\\\
 	Possiamo effettuare la seguente trasformazione:\\\\
 	${\frac{dx}{dt} = v(t)}\Rightarrow\\{{dx} = {v(t)dt}} \Rightarrow\\{\int_{x_0}^{x}(dx')} = {\int_{t_0}^{t}(v(t')dt')} \Rightarrow\\{x-x_0} = {\int_{t_0}^{t}(v(t')dt')}\Rightarrow\\{x} = {x_0} + {\int_{t_0}^{t}(v_0(dt'))} \Rightarrow \mathcolor{red}{{x(t) = x_0 + v_0(t-t_0)}}$\\\\
-	Quando abbiamo un movimento di un corpo e dobbiamo sapere la sua posizione a seguito di una certa velocità, dobbiamo sapere da dov'è partito, quindi un'istante di tempo che ci dica dove sia all'inizio, per questo nella formula compare $x_0$, dato che l'integrale è definito questo è il punto come consideriamo come quello di partenza, che tipicamente prendiamo come $0$. Passare invece dalla legge oraria alla velocità non richiede nessun parametro aggiuntivo.
+	Quando abbiamo un movimento di un corpo e dobbiamo sapere la sua posizione a seguito di una certa velocità, dobbiamo sapere da dov'è partito, quindi un'istante di tempo che ci dica dove sia all'inizio, per questo nella formula compare $x_0$, dato che l'integrale è definito questo è il punto come consideriamo come quello di partenza, che tipicamente prendiamo come $0$. Passare invece dalla legge oraria alla velocità non richiede nessun parametro aggiuntivo.\\ \textit{Attenzione}: Se la funzione della velocità è discontinua (ad esempio quando si torna indietro), la funzione non è derivabile, quindi si devono considerare due leggi del moto differenti, prima dell'urto e dopo l'urto.
+	\subsection{Accelerazione}
+	Possiamo distinguere accelerazione media e accelerazione istantanea come nella velocità.\\\\
+	$a_{m} = \frac{\Delta v}{\Delta t}$\\
+	$a = \frac{dv}{dt} = \frac{d^2x}{dt^2}$\\
+	$a = 0 \Longleftrightarrow v$ è costante.\\
+	$dv = a(t)dt \Longrightarrow \Delta v = \int_{v_0}^{v}dv = \int_{t_0}^{t}a(t)dt$\\
+	$v(t) = v_0 + \int_{t_0}^{t}(a(t))dt$\\\\
+	Se $a$ è costante ho un \textbf{moto rettilineo uniforme} definibile con: $X(t) = X_{0} + \int_{t_{0}}^{t}(v(t'))dt = X_0 \int_{t_0}^{t}[v_0 + a(t-t_0)]dt = X_0 + \int_{t_0}^{t}v_0dt + \int_{t_0}^{t}a(t - t_0)dt \Longrightarrow \mathcolor{red}{X(t) = X_0 + v_0(t - t_0) + \frac{1}{2}a(t - t_0)^2}$\\\\
+	Se però non abbiamo informazioni sul tempo, e vogliamo considerare la velocità in funzione della distanza invece che il tempo ($v(x)$ invece che $v(t)$), elaboro le informazioni nel seguente modo:\\
+	$a = \frac{dv}{dt} = {\frac{dv}{dx}\frac{dx}{dt}} = v(\frac{dv}{dx}) \Rightarrow\\adx = vdv$ passo poi all'integrale $\int_{x_0}^{x}(a)dx' = \int_{v_0}^{v}(v)dv = \int_{x_0}^{x}(a(x))dx' = \frac{1}{2}v^2 - \frac{1}{2}v^2_{0} \Longrightarrow\\\mathcolor{red}{v^2 = v^2_0 + 2a(x -x_0)}$
+	\subsubsection{Unità di misura}
+	$[L] \longrightarrow m \rightarrow Km$\\
+	$[T] \longrightarrow s \rightarrow h$ (hours), $d$ (days), $y$ (years)\\
+	$[v] = [LT^{-1}] \longrightarrow \frac{m}{s} \rightarrow \frac{Km}{h}$\\
+	$[a] = [LT^{-2}] \longrightarrow \frac{m}{s^2}$
+	\subsection{Caduta di corpi gravi}
+	Consideriamo uno spazio bidimensionale (la caduta è considerata completamente in verticale).\\
+	\colorbox{red}{Figura}\\
+	
+	\section{Moto nello spazio}
+	
 	\chapter{Dinamica}
 	Perché un corpo si muove in un determinato modo?
+	\appendix
+	\chapter{Esercizi}
+	\section{Cinematica}
+	\subsection{In slide di teoria}
+	\begin{itemize}
+		\item \textit{Guido l’automobile a $43 Km/h$ per $5.2 Km$ su una strada rettilinea. Resto senza benzina e 
+			percorro a piedi $1.2 Km$ in $27$ minuti, fino al distributore. Qual è stata la mia velocità media? 
+			Disegnare anche un grafico di $x(t)$.}\\\\
+			$v(x) = 43 \frac{Km}{h}$\\
+			Spazio percorso è: $x = x_1 + x_2 = (5,2 + 1,2)Km = 6,4Km$\\
+			$v_m = \frac{\Delta x}{\Delta t} = \frac{x- x_0}{t - t_0} = \frac{6400}{t}\frac{m}{s}$ Ci manca da trovare $t = t_1 + t_2$\\
+			$t_1 = (\frac{1}{43} * 5,2)\frac{h}{Km} * Km = 0,1209h = 435,24s$\\
+			$t_2 = 27m = 27 + 60 = 1620s$\\
+			Concludendo: $v_m = \frac{6400}{2055,24}\frac{m}{s} = 3,1139\frac{m}{s}$
+	\end{itemize}
+	
 \end{document} 
