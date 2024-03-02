@@ -5,6 +5,7 @@
 \usepackage{float}
 \usepackage{xcolor}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \title{\textbf{Fisica}\\Appunti universitari}
 \author{Luca Casadei}
@@ -21,6 +22,11 @@
 	Nel sistema di riferimento viene rappresentata una curva in forma parametrica.
 	\section{Moto rettilineo}
 	Nel moto rettilineo ho una retta che ha un verso (orientata) e il punto si muove su questa retta, determiniamo con ${x(t)}$ la posizione del punto sulla retta, definito da una sola coordinata spaziale. Questa funzione è detta \textbf{legge oraria}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics{./immagini/cinematica/figcine1.png}
+		\caption{Rappresentazione del moto rettilineo}
+	\end{figure}
 	\subsection{Velocità}
 	Se il corpo si sta spostando per come lo osservo, prendendo due istanti diversi ${t_1,t_2}$ il corpo è in posizioni diverse ${x_1,x_2}$, possiamo definire la velocità media come: ${v_m = \frac{\Delta_x}{\Delta_t} = \frac{x_2 - x_1}{t_2 - t_1}}$.\\
 	Questa si basa su dei ${\Delta}$ macroscopici, se ${t_2}$ si avvicina a ${t_1}$, il ${\Delta}$ diventa sempre minore e il limite rappresenta effettivamente la derivata.\\
@@ -28,9 +34,22 @@
 	Vediamo quindi come arrivare a questa velocità: se consideriamo il coefficiente angolare $m_{sec} = {{\frac{f(x_0 + h) - f(x_0)}{x_0 + h - x_0}} \Rightarrow {\frac{(x_0 + h) - f(x_0)}{h}}}$ come si può notare questo è il rapporto incrementale che dobbiamo utilizzare per ottenere questa volta la velocità istantanea (quindi in un istante), che è rappresentata dal coefficiente angolare della retta tangente al punto dell'istante di nostro interesse, procediamo quindi con: $m_{tg} = {\lim\limits_{h\to0}(\frac{f(x_0 + h) - f(x_0)}{h})} = {\frac{df}{dx}(x_0)} = {\lim\limits_{\Delta t\to0}(\frac{\Delta x}{\Delta t})} = v_{\text{ist}}$ come si può vedere ho ottenuto la derivata, con la quale posso calcolare la velocità in un certo istante.
 	\subsubsection{Classificazione delle velocità in base al grafico della funzione}
 	\begin{itemize}
-		\item \textbf{No moto}: Se la funzione è costante, la retta è parallela all'asse delle ascisse e non abbiamo quindi alcun movimento.
-		\item \textbf{Velocità costante}: Se la funzione è una retta e non presenta curve (\textit{velocità costante}), la sua derivata è semplicemente la retta tangente di tutti i suoi punti, la cui pendenza è 0. In questo caso ${v_0 = v}$ costante.
-		\item \textbf{Velocità non costante}: Nel caso in cui la velocità cambia nel tempo (ad esempio se cresce sempre all'aumentare del tempo), allora si avrà una curva e non una retta, cosa che invece abbiamo se si tratta di \textbf{moto uniformemente accelerato}.
+		\item \textbf{Nessun moto}: Se la funzione è costante, la retta è parallela all'asse delle ascisse e non abbiamo quindi alcun movimento.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=300pt]{./immagini/cinematica/figcine2.png}
+		\end{figure}
+		\item \textbf{Velocità costante}: Se il diagramma orario è una retta e non presenta curve, la sua derivata (velocità) è semplicemente la retta tangente di tutti i suoi punti, la cui pendenza è 0. In questo caso:\\
+		$x(t) = A + Bt$;\;\;\;$v(t) = B = \frac{\Delta x}{\Delta t}$
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=300pt]{./immagini/cinematica/figcine3.png}
+		\end{figure}
+		\item \textbf{Velocità non costante}: Nel caso in cui la velocità cambia nel tempo (ad esempio se cresce sempre all'aumentare del tempo), allora si avrà una curva e non una retta nel diagramma orario.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=300pt]{./immagini/cinematica/figcine4.png}
+		\end{figure}
 	\end{itemize}
 	Possiamo notare che matematicamente per arrivare alla velocità considerando le 3 coordinate di un punto è che: ${{X = A + B(t) + C(t^2)} \Rightarrow {v = B + C(t)}}$.
 	\subsubsection{Ricavare la legge oraria dalla velocità}
@@ -116,13 +135,20 @@
 			\item Tempo di caduta: $t_c = \frac{v_2}{g}\pm\frac{v_2}{g}$
 			\item Velocità al suolo: $v_c = \pm v_2$
 		\end{itemize}
-		La rappresentazione grafica di quest'ultimo tipo di moto è data dall'interpretazione che inizialmente il corpo si trova al livello del suolo con $t = 0;$\;\;\;$v = v_2$ e successivamente $t = \frac{2v_2}{g}$ con $v = -v_2$.\\
-		\colorbox{red}{Figura}
+		La rappresentazione grafica di quest'ultimo tipo di moto è data dall'interpretazione che inizialmente il corpo si trova al livello del suolo con $t = 0;$\;\;\;$v = v_2$ e successivamente $t = \frac{2v_2}{g}$ con $v = -v_2$.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=200pt]{./immagini/cinematica/figcine5.png}
+		\end{figure}
 	\end{itemize}
 	
 	\section{Moto nello spazio}
-	Quando non abbiamo un moto rettilineo (in una dimensione) possiamo descrivere il moto in maniera più generale nello spazio attraverso le dimensioni spaziali. La posizione di un elemento nello spazio è individuata da un vettore posizione:\\
-	$\vec{r}(t) = x(t)\hat{i} + y(t)\hat{i} + z(t)\hat{k}$\\
+	Quando non abbiamo un moto rettilineo (in una dimensione) possiamo descrivere il moto in maniera più generale nello spazio attraverso le dimensioni spaziali. La posizione di un elemento nello spazio è individuata da un vettore posizione:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=200pt]{./immagini/cinematica/figcine6.png}
+		\caption{$\vec{r}(t) = x(t)\hat{i} + y(t)\hat{i} + z(t)\hat{k}$}
+	\end{figure}
 	\begin{itemize}
 		\item \textbf{Velocità}: I concetti di velocità media e velocità istantanea sono analoghi a quelli di una dimensione:\\
 		dati $\vec{r_1} = \vec{r_1}(t)$ e $\vec{r_2} = \vec{r_2}(t_2)$ definisco lo spostamento $\Delta\vec{r} = \vec{r_2} - \vec{r_1}$ che avviene in un certo intervallo temporale $\Delta t = t_2 - t_1$, quindi (ricordando che $v_m$ è la velocità media e $v$ quella istantanea):\\
