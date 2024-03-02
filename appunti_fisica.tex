@@ -25,7 +25,7 @@
 	Se il corpo si sta spostando per come lo osservo, prendendo due istanti diversi ${t_1,t_2}$ il corpo è in posizioni diverse ${x_1,x_2}$, possiamo definire la velocità media come: ${v_m = \frac{\Delta_x}{\Delta_t} = \frac{x_2 - x_1}{t_2 - t_1}}$.\\
 	Questa si basa su dei ${\Delta}$ macroscopici, se ${t_2}$ si avvicina a ${t_1}$, il ${\Delta}$ diventa sempre minore e il limite rappresenta effettivamente la derivata.\\
 	Inoltre essa è la pendenza della retta secante a quella che rappresenta il movimento, se riduco $t_2$ fino ad arrivare a $t_1$ ottengo la \textbf{velocità istantanea}.\\
-	Vediamo quindi come arrivare a questa velocità: se consideriamo il coefficiente angolare $m_{sec} = {{\frac{f(x_0 + h) - f(x_0)}{x_0 + h - x_0}} \Rightarrow {\frac{(x_0 + h) - f(x_0)}{h}}}$ come si può notare questo è il rapporto incrementale che dobbiamo utilizzare per ottenere questa volta la velocità istantanea (quindi in un istante), che è rappresentata dal coefficiente angolare della retta tangente al punto dell'istante di nostro interesse, procediamo quindi con: $m_{tg} = {\lim_{h\to0}(\frac{f(x_0 + h) - f(x_0)}{h})} = {\frac{df}{dx}(x_0)} = {\lim_{\Delta t\to0}(\frac{\Delta x}{\Delta t})} = v_{ist}$ come si può vedere ho ottenuto la derivata, con la quale posso calcolare la velocità in un certo istante.
+	Vediamo quindi come arrivare a questa velocità: se consideriamo il coefficiente angolare $m_{sec} = {{\frac{f(x_0 + h) - f(x_0)}{x_0 + h - x_0}} \Rightarrow {\frac{(x_0 + h) - f(x_0)}{h}}}$ come si può notare questo è il rapporto incrementale che dobbiamo utilizzare per ottenere questa volta la velocità istantanea (quindi in un istante), che è rappresentata dal coefficiente angolare della retta tangente al punto dell'istante di nostro interesse, procediamo quindi con: $m_{tg} = {\lim\limits_{h\to0}(\frac{f(x_0 + h) - f(x_0)}{h})} = {\frac{df}{dx}(x_0)} = {\lim\limits_{\Delta t\to0}(\frac{\Delta x}{\Delta t})} = v_{\text{ist}}$ come si può vedere ho ottenuto la derivata, con la quale posso calcolare la velocità in un certo istante.
 	\subsubsection{Classificazione delle velocità in base al grafico della funzione}
 	\begin{itemize}
 		\item \textbf{No moto}: Se la funzione è costante, la retta è parallela all'asse delle ascisse e non abbiamo quindi alcun movimento.
@@ -55,7 +55,6 @@
 	$[a] = [LT^{-2}] \longrightarrow \frac{m}{s^2}$
 	\subsection{Caduta di corpi gravi}
 	Consideriamo uno spazio bidimensionale (la caduta è considerata completamente in verticale).\\
-	\colorbox{red}{Figura}\\
 	Dobbiamo considerare in questo caso l'accelerazione di gravità sulla terra, definita generalmente come: $g = 9,81\frac{m}{s^2}$, questo è un moto uniformemente accelerato caratteristica di qualsiasi gravo sulla terra se verso il basso, verso l'alto sarà la sua controparte negativa $-g$. Si possono presentare diversi casi:
 	\begin{itemize}
 		\item Un corpo cade da un'altezza h con $v_0 = 0$\;\;\;$x_0 = h$\;\;\;$t_0 = 0$\\Valgono quindi le seguenti funzioni a partire da quelle precedentemente ottenute (vedi \ref{ss:accelerazione}).
@@ -77,12 +76,65 @@
 			\item Tempo di caduta: $t_c = \sqrt{\frac{2h}{g}}$
 			\item Velocità al suolo: $v_c = \sqrt{2gh}$
 		\end{itemize}
-		\item Un corpo cade da altezza $h$ con $v_0 < 0$ (verso il basso):
-		\colorbox{red}{Da finire}
+		\item Un corpo cade da altezza $h$ con $v_0 < 0$ (verso il basso): Qui abbiamo le condizioni iniziali $x_0 = h;$\;\;\;$v_0 = -v_i$ se $(v_i > 0);$\;\;\;$t_0 = 0$, sono quindi valide le seguenti espressioni:
+		\begin{equation}
+			\text{In funzione del tempo:}
+			\begin{cases}
+				v(t) = -v_1 - gt\\
+				x(t) = h - v_1t - \frac{1}{2}gt^2
+			\end{cases}
+		\end{equation}
+		\begin{equation}
+			\textit{In funzione dello spazio:}
+			\begin{cases}
+				v(x) = \sqrt{v_1^2 + 2g(h-x)}\\
+				t(x) = -\frac{v_1}{g} + \sqrt{\frac{v_1^2}{g^2} + \frac{2(h-x)}{g}}
+			\end{cases}
+		\end{equation}
+		Anche in questo caso ricaviamo il tempo e la velocità di arrivo al suolo.
+		\begin{itemize}
+			\item Tempo di caduta: $t_c = -\frac{v_1}{g} + \sqrt{\frac{v_1^2}{g^2} + \frac{2h}{g}}\rightarrow$ in questo caso abbiamo scartato la soluzione negativa, perché il tempo non può essere negativo.
+			\item Velocità al suolo: $v_c = \sqrt{v_1^2 + 2gh}$
+		\end{itemize}
+		\item Un corpo viene lanciato verso l'alto $(v_0 > 0)$, partendo dal suolo. In questo caso le condizioni iniziali sono: $x_0 = 0;$\;\;\;$v_0 = v_2 > 0;$\;\;\;$t_0 = 0;$
+		\begin{equation}
+			\text{In funzione del tempo:}
+			\begin{cases}
+				v(t) = v_2 - gt\\
+				x(t) = v_2t - \frac{1}{2}gt^2
+			\end{cases}
+		\end{equation}
+		\begin{equation}
+			\text{In funzione dello spazio:}
+			\begin{cases}
+				v(x) = \pm\sqrt{v_2^2 - 2g(x)}\\
+				t(x) = \frac{v_2}{g}\pm\sqrt{\frac{v_2^2}{g^2} - \frac{2x}{g}}
+			\end{cases}
+		\end{equation}
+		Si presenta in questo caso un più o meno, deriva dal fatto che il corpo passa due volte nella stessa posizione, una volta mentre sta salendo e la seconda volta mentre sta scendendo.
+		\begin{itemize}
+			\item Tempo di caduta: $t_c = \frac{v_2}{g}\pm\frac{v_2}{g}$
+			\item Velocità al suolo: $v_c = \pm v_2$
+		\end{itemize}
+		La rappresentazione grafica di quest'ultimo tipo di moto è data dall'interpretazione che inizialmente il corpo si trova al livello del suolo con $t = 0;$\;\;\;$v = v_2$ e successivamente $t = \frac{2v_2}{g}$ con $v = -v_2$.\\
+		\colorbox{red}{Figura}
 	\end{itemize}
 	
 	\section{Moto nello spazio}
-	
+	Quando non abbiamo un moto rettilineo (in una dimensione) possiamo descrivere il moto in maniera più generale nello spazio attraverso le dimensioni spaziali. La posizione di un elemento nello spazio è individuata da un vettore posizione:\\
+	$\vec{r}(t) = x(t)\hat{i} + y(t)\hat{i} + z(t)\hat{k}$\\
+	\begin{itemize}
+		\item \textbf{Velocità}: I concetti di velocità media e velocità istantanea sono analoghi a quelli di una dimensione:\\
+		dati $\vec{r_1} = \vec{r_1}(t)$ e $\vec{r_2} = \vec{r_2}(t_2)$ definisco lo spostamento $\Delta\vec{r} = \vec{r_2} - \vec{r_1}$ che avviene in un certo intervallo temporale $\Delta t = t_2 - t_1$, quindi (ricordando che $v_m$ è la velocità media e $v$ quella istantanea):\\
+		$\vec{v_m} = \frac{\Delta \vec{r}}{\Delta t}$;\;\;\;\;
+		$\vec{v} = \lim\limits_{\Delta t \to 0}(\frac{\Delta\vec{r}}{\Delta t}) = \frac{d\vec{r}}{dt}$\\
+		Se vogliamo rappresentare le componenti cartesiane:\\$\vec{v} = v_x\hat{i} + v_y\hat{j} + v_z\hat{k} = \frac{d(x\hat{i} + y\hat{j} + z\hat{k})}{dt}$ e scomponendo quest'ultima frazione possiamo ottenere: $v_x = \frac{dx}{dt};$\;\;\;$v_y = \frac{dy}{dt};$\;\;\;$v_z = \frac{dz}{dt}$
+		\item \textbf{Accelerazione}: Procediamo in modo analogo con l'accelerazione:\\
+		$\vec{a_m} = \frac{\Delta\vec{v}}{\Delta t};$\;\;\;\;$\vec{a} = \lim\limits_{\Delta t\to0}(\frac{\Delta\vec{v}}{\Delta t}) = \frac{d\vec{v}}{dt}$\\
+		$a_x = \frac{dv_x}{dt};$\;\;\;\;$a_y = \frac{dv_y}{dt};$\;\;\;\;$a_z = \frac{dv_z}{dt}$\\
+		$a_x = \frac{d^2x}{dt^2};$\;\;\;\;$a_y = \frac{d^2y}{dt^2};$\;\;\;\;$a_z = \frac{d^2z}{dt^2}$\\
+		È possibile produrre un'accelerazione che varia soltanto la direzione della velocità $\vec{v}$ e non il modulo $|\vec{v}|$.
+	\end{itemize}
 	\chapter{Dinamica}
 	Perché un corpo si muove in un determinato modo?
 	\appendix
